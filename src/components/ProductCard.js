@@ -1,12 +1,15 @@
-import { Card } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap';
 
-function ProductCard() {
+function ProductCard({ product }) {
   return (
     <Card>
-      <h1>title</h1>
-      <button>Add to card</button>
+      <Card.Body>
+        <Card.Title>{product.title}</Card.Title>
+        <Card.Text>${product.price}</Card.Text>
+        <Button variant='primary'>Add to card</Button>
+      </Card.Body>
     </Card>
-  )
+  );
 }
 
-export default ProductCard
+export default ProductCard;

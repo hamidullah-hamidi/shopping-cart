@@ -2,17 +2,17 @@ export const productsArray = [
   {
     id: 1,
     title: 'book',
-    price: 5,
+    price: 22.1,
   },
   {
     id: 2,
     title: 'pen',
-    price: 5,
+    price: 5.24,
   },
   {
     id: 3,
     title: 'eraser',
-    price: 5,
+    price: 49,
   },
 ];
 
