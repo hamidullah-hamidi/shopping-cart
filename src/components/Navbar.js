@@ -26,10 +26,11 @@ function NavbarComponent() {
             <>
               <p>Items in your cart:</p>
               {cart.items.map((currentProduct) => (
-                <h1>{currentProduct.title}</h1>
+                <h1>{currentProduct.id}</h1>
               ))}
 
               <h1>Total: {cart.getTotalCost().toFixed(2)}</h1>
+              <Button variant='success'>Purchase items!</Button>
             </>
           ) : (
             <h3>There are no items in your cart!</h3>
