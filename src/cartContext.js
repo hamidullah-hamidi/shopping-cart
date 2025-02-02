@@ -76,4 +76,6 @@ function CartProvider({ children }) {
   );
 }
 
+export default CartProvider;
+
 // 3)   export context
