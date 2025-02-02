@@ -2,7 +2,14 @@ import { createContext, useState } from 'react';
 import { getProductData } from './productsStore';
 
 // 1)   create context
-const CardContext = createContext();
+const CardContext = createContext({
+  items: [],
+  getProductQuantity: () => {},
+  addOneToCart: () => {},
+  removeOneFromCart: () => {},
+  deleteFromCart: () => {},
+  getTotalCost: () => {},
+});
 
 // 2)   create Provider
 function CartProvider({ children }) {
