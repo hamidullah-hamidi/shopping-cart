@@ -5,7 +5,7 @@ import { CardContext } from '../cartContext';
 function ProductCard({ product }) {
   const cart = useContext(CardContext);
   const productQuantity = cart.getProductQuantity(product.id);
-  console.log(cart.items);
+  // console.log(cart.items);
 
   return (
     <Card>
@@ -19,14 +19,25 @@ function ProductCard({ product }) {
                 In Cart: {productQuantity}
               </Form.Label>
               <Col sm='6'>
-                <Button sm='6' className='mx-2'>
-                  +
-                </Button>
-                <Button sm='6' className='mx-2'>
+                <Button
+                  sm='6'
+                  className='mx-2'
+                  onClick={() => cart.removeOneFromCart(product.id)}
+                >
                   -
+                </Button>
+                <Button
+                  sm='6'
+                  className='mx-2'
+                  onClick={() => cart.addOneToCart(product.id)}
+                >
+                  +
                 </Button>
               </Col>
             </Form>
+            <Button variant='danger' className='my-2' onClick={() => cart.deleteFromCart(product.id)}>
+              Delete Card
+            </Button>
           </>
         ) : (
           <Button variant='primary' onClick={() => cart.addOneToCart(product.id)}>

@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Button, Navbar, Modal, Container } from 'react-bootstrap';
+import { CardContext } from '../cartContext';
 
 function NavbarComponent() {
   const [show, setShow] = useState(false);
+  const cart = useContext(CardContext);
+
+  const productCount = cart.items.reduce((sum, product) => sum + product.quantity, 0);
 
   return (
     <>
@@ -10,7 +14,7 @@ function NavbarComponent() {
         <Navbar.Brand href='/'>Ecommerce Store</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className=' justify-content-end'>
-          <Button onClick={() => setShow(true)}>Cart 0 Items</Button>
+          <Button onClick={() => setShow(true)}>Cart {productCount} Items</Button>
         </Navbar.Collapse>
       </Navbar>
       <Modal show={show} onHide={() => setShow(false)}>
