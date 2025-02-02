@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react';
+import { getProductData } from './productsStore';
 
 // 1)   create context
 const CardContext = createContext();
@@ -48,6 +49,15 @@ function CartProvider({ children }) {
         return currentProduct.id !== id;
       })
     );
+  }
+
+  function getTotalCost() {
+    let totalCost = 0;
+    cardProducts.map((cartItem) => {
+      const productData = getProductData(cartItem.id);
+      totalCost += productData.price * cartItem.quantity;
+    });
+    return totalCost;
   }
 
   return (
