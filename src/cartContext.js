@@ -2,7 +2,7 @@ import { createContext, useState } from 'react';
 import { getProductData } from './productsStore';
 
 // 1)   create context
-const CardContext = createContext({
+export const CardContext = createContext({
   items: [],
   getProductQuantity: () => {},
   addOneToCart: () => {},
