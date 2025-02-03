@@ -17,6 +17,7 @@ function CartProduct(props) {
       <Button size='sm' onClick={() => cart.deleteFromCart(id)}>
         Remove
       </Button>
+      <hr />
     </div>
   );
 }
